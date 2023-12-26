@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: DaemonSet
+metadata: 
+    name: daemonwala
+spec:
+  selector:
+     matchLabels:
+         app: ssd
+  template:
+     metadata:
+        labels:
+         app: ssd
+     spec:
+        containers:
+           - name: ssdwala
+             image: luksa/ssd-monitor
