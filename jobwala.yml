@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+   name: jobwala
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+     metadata:
+        labels:
+          app: batchjobs
+     spec:
+       restartPolicy: OnFailure
+       containers:
+             - name: main
+               image: busybox:1.28
+               command:
+                  - /bin/sh
+                  - -c
+                  - date;
