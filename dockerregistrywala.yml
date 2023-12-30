@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynginxpod
+  labels: 
+     app: web
+spec:
+   imagePullSecrets:
+      - name: mydockerhubregistry
+   containers:
+      - name: mynginxcontainer
+        image: mayuravhad/kubernetes
+        ports:
+          - containerPort: 80
